@@ -35,7 +35,7 @@ export async function getDataInventory(context = {}) {
     const items = values.map((value, index) => {
       if (!value || typeof value !== 'object') throw new Error('INVALID_SOURCE_METADATA');
       const output = { id: values.length > 1 ? source.id + ':' + index : source.id, appId: metadata.appId, label: source.label, labels: source.labels, kind: source.kind, status: value.status || 'ready' };
-      for (const field of ['hostPath', 'containerPath', 'volumeName', 'storageKey', 'description']) if (typeof value[field] === 'string' && value[field]) output[field] = value[field];
+      for (const field of ['applicationPath', 'hostPath', 'containerPath', 'volumeName', 'storageKey', 'description']) if (typeof value[field] === 'string' && value[field]) output[field] = value[field];
       return output;
     });
     return { status: items.length ? items.every(item => item.status === 'unavailable') ? 'unavailable' : items.some(item => item.status === 'unavailable') ? 'partial' : 'ready' : 'empty', items };

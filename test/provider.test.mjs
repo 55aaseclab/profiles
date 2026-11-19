@@ -48,6 +48,11 @@ test('server inventory uses the supplied resolver and browser metadata exposes n
   for (const field of ['hostPath','containerPath','volumeName','storageKey']) assert.equal(browser.items[0][field], undefined);
   const unavailable = await getDataInventory({ resolveDataSource: async () => { throw new Error('unavailable'); } }); assert.equal(unavailable.status, 'unavailable'); assert.equal(unavailable.items[0].hostPath, undefined);
 });
+test('inventory preserves proven application paths without inventing host or mount locations', async () => {
+  const result = await getDataInventory({ resolveDataSource: async () => ({ applicationPath: '/synthetic/app/originals', status: 'application-only' }) });
+  assert.equal(result.status, 'ready'); assert.equal(result.items[0].applicationPath, '/synthetic/app/originals');
+  assert.equal(result.items[0].hostPath, undefined); assert.equal(result.items[0].containerPath, undefined); assert.equal(result.items[0].volumeName, undefined);
+});
 test('provider imports no Node modules and never performs its own network or filesystem access', async () => {
   const source = await readFile(new URL('../praxis-provider.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(source, /node:|process\.env|\bfetch\s*\(|\brequire\s*\(/);
