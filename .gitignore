@@ -1,0 +1,15 @@
+# Allow only the public application distribution and synthetic checks.
+*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/PRD.md
+!/ROADMAP.md
+!/public/
+/public/*
+!/public/index.html
+!/public/app.css
+!/public/app.js
+!/test/
+/test/*
+!/test/smoke.mjs
