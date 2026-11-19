@@ -13,3 +13,6 @@
 !/test/
 /test/*
 !/test/smoke.mjs
+
+!/praxis-provider.mjs
+!/test/provider.test.mjs
