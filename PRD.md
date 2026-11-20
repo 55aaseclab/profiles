@@ -14,6 +14,10 @@ The private catalog supplies `revision` from the already-open regular file's ide
 
 Declare the private originals directory as a server-owned inventory source. The browser receives no filesystem path. The server resolves the configured directory for authorized Settings administration. Keep all document bytes, names and live paths outside the public source repository.
 
+## App-owned Praxis integration
+
+This app owns its reviewed `praxis-integration.mjs`: native entry policy, typed business operations and MCP guidance where supported. Praxis loads that declaration from the installed source and retains authorization, signing, policy leases and audit. Installation does not grant access or start a backend. Existing native interfaces, data ownership and recovery boundaries remain in force.
+
 ## 简体中文
 
 **个人材料需求 · v0.1.1**
@@ -29,3 +33,7 @@ Declare the private originals directory as a server-owned inventory source. The 
 私有目录接口从已打开的常规文件身份、大小及修改/变更时间派生 `revision`，以修改时间提供 `updatedAt`。仅对 Markdown、纯文本、TeX、BibTeX 有限读取并提取短纯文本预览；PDF 和办公文档只提供元数据及原件入口，不虚构摘要或读取正文。保留软/硬链接排除、路径约束、敏感文件过滤和交付前的资料所有者再次验权。
 
 原件目录声明为服务端管理的数据位置，浏览器不获取文件系统路径；由服务端为获授权的设置管理员解析实际配置。文档正文、名称和真实部署路径都留在公开源码之外。
+
+## 应用自有 Praxis 集成
+
+本应用在所属仓库维护经审核的 `praxis-integration.mjs`，声明原生入口策略，以及已支持的类型明确的业务操作与 MCP 指引。Praxis 从已安装源码加载声明，继续统一执行授权、签名、策略租约与审计。安装声明不会授予访问权限，也不会启动后端；已有原生界面、数据归属与恢复边界继续生效。
