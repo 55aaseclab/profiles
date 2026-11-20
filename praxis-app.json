@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "profiles",
+  "version": "0.1.1",
+  "kind": "app",
+  "name": "Profiles",
+  "description": "Private academic dossiers",
+  "labels": {
+    "en": {
+      "name": "Profiles",
+      "description": "Private academic dossiers"
+    },
+    "zh": {
+      "name": "个人材料",
+      "description": "私有简历与求职材料"
+    }
+  },
+  "icon": "public/praxis-icon.svg",
+  "iconAliases": [
+    "/profiles-icon.svg"
+  ],
+  "path": "/",
+  "adminOnly": true,
+  "documents": {
+    "prd": {
+      "en": "PRD.md",
+      "zh": "PRD.md",
+      "zhHeading": "## 简体中文"
+    }
+  }
+}

@@ -16,3 +16,8 @@
 
 !/praxis-provider.mjs
 !/test/provider.test.mjs
+
+# App-owned registration metadata and audited icon.
+!/praxis-app.json
+!/apps.example.json
+!/public/praxis-icon.svg

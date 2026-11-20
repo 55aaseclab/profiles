@@ -26,3 +26,19 @@ The server authenticates both endpoints, checks access on every request and sets
 `praxis-provider.mjs` 提供版本 1 的浏览器卡片投影和服务端数据位置声明。卡片只通过一次已授权的 `read('api/documents')` 读取目录，不逐份下载原件，不写业务记录，保留原文件名及内容语言，并将入口和证据都指向同一份原生文档。网关与私有接口共同执行配置的所有者边界。元数据版本标识文件系统版本，不冒充全文内容摘要。
 
 原件目录通过 `describe().dataSources` 的 `location.env` 声明，由服务端 `resolveDataSource` 提供实际位置；浏览器元数据不包含路径。无依赖测试：`node --test test/provider.test.mjs`。
+
+## Praxis registration
+
+App release: `0.1.1`. The app owns [`praxis-app.json`](praxis-app.json), its English and Simplified Chinese presentation, the icon at `public/praxis-icon.svg`, the declared PRD locations and any legacy icon aliases. `schemaVersion: 1` identifies the registration format; it is separate from this app release and from data, protocol and document revisions. Package and lockfile release metadata, where present, agree with the declaration.
+
+[`apps.example.json`](apps.example.json) registers a local alias by referencing `./praxis-app.json` and `http://127.0.0.1:8082/`. Start the standalone service described above before using the example; registration does not start a backend or grant account, administrator or business-data access. Installation origins, data locations and access policy remain separately configured.
+
+For a static preview, run `python3 -m http.server 8082 --bind 127.0.0.1 --directory public`. Private document reads still require the authenticated same-origin API described above.
+
+## Praxis 登记
+
+应用发行版本：`0.1.1`。本应用维护 [`praxis-app.json`](praxis-app.json)、英中展示文案、`public/praxis-icon.svg` 图标、PRD 路径及需要保留的旧图标别名。`schemaVersion: 1` 表示登记格式，与应用发行版本、数据、协议和文档修订分别管理；已有 package 和 lockfile 的发行版本须与声明一致。
+
+[`apps.example.json`](apps.example.json) 引用 `./praxis-app.json`，使用 `http://127.0.0.1:8082/` 登记本地别名。先按上文启动独立服务；登记不启动后端，也不授予账号、管理员或业务数据权限。安装地址、数据位置与授权策略仍独立配置。
+
+静态预览可执行 `python3 -m http.server 8082 --bind 127.0.0.1 --directory public`；读取私人文档仍需上文规定的同源鉴权接口。
