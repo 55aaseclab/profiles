@@ -21,3 +21,14 @@
 !/praxis-app.json
 !/apps.example.json
 !/public/praxis-icon.svg
+
+# Reviewed source-only Praxis integration helpers.
+!/praxis-integration.mjs
+!/praxis/
+/praxis/*
+!/praxis/README.md
+!/praxis/web.mjs
+!/praxis/storage.mjs
+!/praxis/deployment.mjs
+!/praxis/local-compose.mjs
+!/praxis/stack.mjs
